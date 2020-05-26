@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="./lib/browser.js"></script>
+<script>
+    (function (generateAuth) {
+        var apiKey = '14db63d7f3614664ad1c71dd134a21dc';
+        var apiSecret = 'ed8cb3a0-8365-4340-9d9c-33f051eedccd';
+        var url = '/api/v1/customers/accounts?acct_no=3206&former_time=1579501210122&latter_time=1579501410122&page_num=1&page_size=20&time_sort=desc';
+        var auth = generateAuth({
+            method: 'GET',
+            apiKey: apiKey,
+            apiSecret: apiSecret,
+            path: url
+        });
+        console.log(auth);
+    })(Railone.generateAuth);
+</script>
+</body>
+</html>

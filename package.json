@@ -1,0 +1,62 @@
+{
+  "name": "railone-sdk-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint --project ./",
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development --display-error-details --progress --color",
+    "build:prod": "cross-env NODE_ENV=production webpack --mode production --progress --color",
+    "prepublish": "npm run lint && npm run build:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/railone-io/railone-sdk-js.git"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testEnvironment": "node",
+    "testRegex": "/test/.*\\.(ts|tsx|js)$"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/railone-io/railone-sdk-js/issues"
+  },
+  "homepage": "https://github.com/railone-io/railone-sdk-js#readme",
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.38",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "ts-loader": "^4.3.0",
+    "tslint": "^5.10.0",
+    "tslint-eslint-rules": "^5.3.1",
+    "tslint-no-circular-imports": "^0.4.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2",
+    "@types/jest": "^22.1.2",
+    "jest": "^23.0.0",
+    "ts-jest": "^22.4.6"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "babel-polyfill": "^6.26.0",
+    "crypto-js": "^3.1.9-1"
+  }
+}
