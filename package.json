@@ -48,7 +48,7 @@
     "tslint-no-circular-imports": "^0.4.0",
     "typescript": "^2.8.3",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2",
     "@types/jest": "^22.1.2",
     "jest": "^23.0.0",
