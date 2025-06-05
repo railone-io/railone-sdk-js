@@ -4,6 +4,42 @@ import { decryptRSA } from '../utils';
 
 describe('Query Virtualcard sensitive information', () => {
 
+    it('test get', () => {
+        const url = '/api/v1/bank/virtualcard';
+        const privateKey = "e733f462bcd1f828820a8f6477f3ccc3b8928b00499fcf55b828bb8ed4b6ea6d";
+        const publicKey = "031194af2b8ad8cba709509a630dfcc3746c24dfbbe9af48264df5663ad308e16f";
+
+        const apiKey = '14db63d7f3614664ad1c71dd134a21dc';
+        const apiSecret = 'ed8cb3a0-8365-4340-9d9c-33f051eedccd';
+        const apiPassphrase = '12345678a'
+        const data = {
+            card_no: '4334094500000041101',
+            publickey: publicKey
+        };
+        const reqGetUrl = `${url}?card_no=${data.card_no}&publickey=${data.publickey}`
+        const requestUrl = `https://api.sandbox.railone.io${url}?card_no=${data.card_no}&publickey=${data.publickey}`
+        const p = axios(requestUrl, {
+            method: 'get',
+            headers: {
+                'Authorization': generateAuth({
+                    method: 'GET',
+                    apiKey,
+                    apiSecret,
+                    path: reqGetUrl,
+                }),
+                'Access-Passphrase': apiPassphrase
+            },
+        });
+        p.catch((err) => {
+            console.error('Error:', err.response ? err.response.data : err.message);
+        });
+        return p.then((res) => {
+            console.log('res', res.data.result.encrypt_data);
+            const endata = res.data.result.encrypt_data;
+            expect(endata.length).toBe(3);
+            
+        });
+    });
     it('test post', () => {
         const url = '/api/v1/bank/virtualcard';
         const publicKey= "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDtxc+w3LlhtF3DcbgS8zqvjYs8Z+s03DrtbQb8iigeMAbKjXLbrWZwX6IprmVRandLuM3PV3UU7L4SCdJZBRUjgEe0q3F/kUe1XwFhsl4aoW9FHKK/d/em50qHSLXw/KPX2HyZ9Ey9G/bV6OwJXvkUYfStBjHNgPlwFca17QhuQIDAQAB";
