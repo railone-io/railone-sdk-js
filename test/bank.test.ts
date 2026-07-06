@@ -37,7 +37,8 @@ describe('Query Virtualcard sensitive information', () => {
             console.log('res', res.data.result.encrypt_data);
             const endata = res.data.result.encrypt_data;
             expect(endata.length).toBe(3);
-            
+            // This test only verifies the encrypted payload length.
+            // For full ECIES decryption details, see query-card-sensitive-info.test.ts.
         });
     });
     it('test post', () => {
@@ -77,10 +78,11 @@ describe('Query Virtualcard sensitive information', () => {
             const cardInfo = JSON.parse(decrypted);
             console.log('cardInfo', cardInfo);
             expect(cardInfo).not.toBeNull();
+            // For ECIES / RSA decryption details and physical card examples,
+            // see query-card-sensitive-info.test.ts.
             // expect(cardInfo.card_number).toBe('1001022400001101');
             // expect(cardInfo.cvv).toBe('123');
             // expect(cardInfo.expire).toBe('022022');
-            
         });
     });
 });
