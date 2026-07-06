@@ -7,6 +7,7 @@ describe('Test kyc', () => {
         const apiKey = '14db63d7f3614664ad1c71dd134a21dc';
         const apiSecret = 'ed8cb3a0-8365-4340-9d9c-33f051eedccd';
         const p = axios(`https://api.sandbox.railone.io${url}`, {
+            method: 'get',
             headers: {
                 'Authorization': generateAuth({
                     method: 'GET',
