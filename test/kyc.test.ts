@@ -6,7 +6,7 @@ describe('Test kyc', () => {
         const url = '/api/v1/customers/accounts?acct_no=1&page_num=1&page_size=20';
         const apiKey = '14db63d7f3614664ad1c71dd134a21dc';
         const apiSecret = 'ed8cb3a0-8365-4340-9d9c-33f051eedccd';
-        const p = axios(`https://api.sandbox.railone.io${url}`, {
+        const p = axios(`https://api-sandbox.railone.io${url}`, {
             method: 'get',
             headers: {
                 'Authorization': generateAuth({
@@ -54,7 +54,7 @@ describe('Test kyc', () => {
             zipcode: '123456',
             card_type_id: '80000005'
         };
-        const p = axios(`https://api.sandbox.railone.io${url}`, {
+        const p = axios(`https://api-sandbox.railone.io${url}`, {
             method: 'post',
             headers: {
                 'Authorization': generateAuth({
