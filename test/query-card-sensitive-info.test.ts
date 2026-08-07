@@ -26,7 +26,7 @@ describe('Query card sensitive information', () => {
             data.publickey = publicKey;
         }
 
-        return axios(`https://api.sandbox.railone.io${url}`, {
+        return axios(`https://api-sandbox.railone.io${url}`, {
             method: 'post',
             headers: {
                 'Authorization': generateAuth({

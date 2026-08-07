@@ -17,7 +17,7 @@ describe('Query Virtualcard sensitive information', () => {
             publickey: publicKey
         };
         const reqGetUrl = `${url}?card_no=${data.card_no}&publickey=${data.publickey}`
-        const requestUrl = `https://api.sandbox.railone.io${url}?card_no=${data.card_no}&publickey=${data.publickey}`
+        const requestUrl = `https://api-sandbox.railone.io${url}?card_no=${data.card_no}&publickey=${data.publickey}`
         const p = axios(requestUrl, {
             method: 'get',
             headers: {
@@ -54,7 +54,7 @@ describe('Query Virtualcard sensitive information', () => {
         card_no: '4334094500000041101',
         publickey: publicKey
         };
-        const p = axios(`https://api.sandbox.railone.io${url}`, {
+        const p = axios(`https://api-sandbox.railone.io${url}`, {
             method: 'post',
             headers: {
                 'Authorization': generateAuth({
